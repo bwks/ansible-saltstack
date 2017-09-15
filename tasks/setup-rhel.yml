@@ -1,0 +1,12 @@
+# rhel/centos
+- name: "RHEL - Check if salt repo is already added"
+  stat:
+    path: "/etc/yum/salt-latest.repo"
+  register: salt_repo
+
+- name: "RHEL - Install salt repo"
+  yum:
+    name: "https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el7.noarch.rpm"
+    state: present
+  when: salt_repo.stat.exists == False
+

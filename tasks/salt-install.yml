@@ -1,0 +1,8 @@
+- name: "Install salt daemons"
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "{{ salt_daemons }}"
+  notify: "salt_start"
+

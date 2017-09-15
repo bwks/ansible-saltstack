@@ -1,0 +1,18 @@
+---
+# handlers file for ansible-salt
+- name: "salt_start"
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: True
+  with_items:
+    - "{{ salt_daemons }}"
+
+
+- name: "salt_restart"
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+  with_items:
+    - "{{ salt_daemons }}"
+

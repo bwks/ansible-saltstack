@@ -1,0 +1,17 @@
+---
+# Defaults file for ansible-salt
+debian_version: {"number": "9", "name": "stretch"}
+
+# Salt default
+salt_master: "master01"
+
+# Default salt daemons
+salt_daemons:
+  - "salt-minion"
+
+# Default salt master config file variables
+use_syndics: False
+
+
+# Default salt minion config file variables
+minion_id: "{{ inventory_hostname }}"

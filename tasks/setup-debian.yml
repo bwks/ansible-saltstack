@@ -1,0 +1,13 @@
+# Debian
+- name: "DEBIAN - Add Salt APT key"
+  apt_key:
+    url: "https://repo.saltstack.com/apt/debian/{{ debian_version.number }}/amd64/latest/SALTSTACK-GPG-KEY.pub"
+    state: present
+    validate_certs: True
+
+- name: "DEBIAN - Create Salt repo directory"
+  template:
+    src: "files/saltstack.list.j2"
+    dest: "/etc/apt/sources.list.d/saltstack.list"
+    mode: 0755
+

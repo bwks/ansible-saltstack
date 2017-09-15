@@ -1,0 +1,15 @@
+---
+# tasks file for ansible-salt
+- include: setup-rhel.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: setup-debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include: salt-install.yml
+
+- include: setup-master.yml
+  when: '"masters" in "{{ group_names }}"'
+
+- include: setup-minion.yml
+  when: '"minions" in "{{ group_names }}"'

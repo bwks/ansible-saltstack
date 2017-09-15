@@ -1,0 +1,20 @@
+- name: "Create salt directories"
+  file:
+    dest: "{{ item }}"
+    state: directory
+    mode: 0755
+  with_items:
+    - "/srv/salt/pillar"
+    - "/srv/salt/states"
+    - "/srv/salt/reactors"
+    - "/srv/salt/templates"
+
+- name: "Copy salt config files to master"
+  template:
+    src: "templates/{{ item.src }}"
+    dest: "/etc/salt/{{ item.dst }}"
+    mode: 0644
+  with_items:
+    - {"src": "salt-minion.conf.j2", "dst": "minion"} 
+    - {"src": "salt-master.conf.j2", "dst": "master"}
+  notify: "salt_restart"
