@@ -1,2 +1,9 @@
 master: {{ salt_master }}
 id: {{ minion_id }}
+
+{% if custom_grains is defined %}
+grains:
+{% for key, value in custom_grains.items() %}
+  {{ key }}: {{ value }}
+{% endfor %}
+{% endif %}
