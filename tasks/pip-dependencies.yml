@@ -1,0 +1,7 @@
+---
+# Pip dependencies
+- name: "PIP - Install PIP dependencies"
+  pip:
+    name: "pyopenssl"
+    state: forcereinstall
+

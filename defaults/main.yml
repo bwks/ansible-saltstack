@@ -1,6 +1,14 @@
 ---
 # Defaults file for ansible-salt
-debian_version: {"number": "9", "name": "stretch"}
+debian:
+  version: 
+    number: "9"
+    name: "stretch"
+
+ubuntu:
+  version:
+    number: "16.04"
+    name: "xenial"
 
 # Salt default
 salt_master: "master01"

@@ -4,12 +4,19 @@
   when: ansible_os_family == 'RedHat'
 
 - include: setup-debian.yml
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution == 'Debian'
+
+- include: pip-dependencies.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- include: setup-ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
 
 - include: salt-install.yml
 
 - include: setup-master.yml
-  when: '"masters" in "{{ group_names }}"'
+  when: '"masters" in group_names'
 
 - include: setup-minion.yml
-  when: '"minions" in "{{ group_names }}"'
+  when: '"minions" in group_names'
+
