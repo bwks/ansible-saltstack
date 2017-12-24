@@ -8,6 +8,7 @@
     - "/srv/salt/states"
     - "/srv/salt/reactors"
     - "/srv/salt/templates"
+    - "/srv/salt/formulas"
 
 - name: "Copy salt config files to master"
   template:
@@ -18,3 +19,4 @@
     - {"src": "salt-minion.conf.j2", "dst": "minion"} 
     - {"src": "salt-master.conf.j2", "dst": "master"}
   notify: "salt_restart"
+
