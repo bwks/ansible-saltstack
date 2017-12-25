@@ -23,3 +23,9 @@ use_syndics: False
 
 # Default salt minion config file variables
 minion_id: "{{ inventory_hostname }}"
+
+# Formulas
+salt_formulas:
+  - name: "vim-formula" 
+    repo: "https://github.com/saltstack-formulas/vim-formula.git"
+

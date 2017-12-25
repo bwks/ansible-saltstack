@@ -11,8 +11,17 @@ file_roots:
     - /srv/salt/states
     - /srv/salt/reactors
     - /srv/salt/templates
+    - /srv/salt/formulas
+
+    # Salt formulas
+{% if salt_formulas %}
+{% for formula in salt_formulas %}
+    - /srv/salt/formula/{{ formula.name }}
+{% endfor %}
+{% endif %}
 
 # Pillar configs
 pillar_roots:
   base:
     - /srv/salt/pillar
+

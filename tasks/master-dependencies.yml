@@ -1,0 +1,8 @@
+---
+- name: "Masters - Install required packages"
+  package: 
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "git"
+

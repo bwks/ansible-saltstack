@@ -20,3 +20,11 @@
     - {"src": "salt-master.conf.j2", "dst": "master"}
   notify: "salt_restart"
 
+- name: "Git clone salt formulas"
+  git: 
+    repo: "{{ item.repo }}"
+    dest: "/srv/salt/formulas/{{ item.name }}"
+  with_items:
+    - "{{ salt_formulas }}"
+  when: salt_formulas
+
