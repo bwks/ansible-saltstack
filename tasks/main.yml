@@ -12,6 +12,9 @@
 - include: setup-ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
 
+- include: master-dependencies.yml
+  when: '"masters" in group_names'
+
 - include: salt-install.yml
 
 - include: setup-master.yml

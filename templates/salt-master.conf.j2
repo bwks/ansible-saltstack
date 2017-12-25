@@ -16,7 +16,7 @@ file_roots:
     # Salt formulas
 {% if salt_formulas %}
 {% for formula in salt_formulas %}
-    - /srv/salt/formula/{{ formula.name }}
+    - /srv/salt/formulas/{{ formula.name }}
 {% endfor %}
 {% endif %}
 
