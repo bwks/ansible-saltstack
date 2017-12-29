@@ -9,8 +9,15 @@ Requirements
 
 Role Variables
 --------------
-- TBA
-
+Set the daemons to install on the master node. 
+```yaml
+# group_vars/masters.yml
+salt_daemons:
+  - "salt-master"
+  - "salt-minion"
+```
+  
+Minions daemons are already defined in the defaults
 
 Dependencies
 ------------
@@ -18,7 +25,13 @@ Dependencies
 
 Example Playbook
 ----------------
-- TBA
+```yaml
+- hosts: all
+  become: True
+
+  roles:
+    - role: ansible-saltstack
+```
 
 License
 -------
