@@ -1,8 +1,21 @@
-- name: "Install salt daemons"
-  package:
+---
+- name: "YUM - Install salt daemons"
+  yum:
     name: "{{ item }}"
     state: latest
+    update_cache: True
   with_items:
     - "{{ salt_daemons }}"
   notify: "salt_start"
+  when: ansible_os_family == 'RedHat'
+
+- name: "APT - Install salt daemons"
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: True
+  with_items:
+    - "{{ salt_daemons }}"
+  notify: "salt_start"
+  when: ansible_os_family == 'Debian'
 

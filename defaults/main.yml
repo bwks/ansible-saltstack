@@ -5,6 +5,11 @@ debian:
     number: "9"
     name: "stretch"
 
+raspbian:
+  version:
+    number: "8"
+    name: "jessie"
+
 ubuntu:
   version:
     number: "16.04"
