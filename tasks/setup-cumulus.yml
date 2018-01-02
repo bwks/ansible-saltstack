@@ -8,4 +8,4 @@
   template:
     src: "templates/cumulus-saltstack.list.j2"
     dest: "/etc/apt/sources.list.d/saltstack.list"
-    mode: 0755
+    mode: 0644
