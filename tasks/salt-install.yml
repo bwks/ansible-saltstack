@@ -17,5 +17,5 @@
   with_items:
     - "{{ salt_daemons }}"
   notify: "salt_start"
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Cumulus Linux'
 

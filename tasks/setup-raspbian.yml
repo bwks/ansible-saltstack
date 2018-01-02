@@ -1,11 +1,11 @@
 # Debian
-- name: "RASPIAN - Add Salt APT key"
+- name: "RASPBIAN - Add Salt APT key"
   apt_key:
     url: "https://repo.saltstack.com/apt/debian/{{ raspbian.version.number }}/armhf/latest/SALTSTACK-GPG-KEY.pub"
     state: present
     validate_certs: True
 
-- name: "RASPIAN - Create Salt repo directory"
+- name: "RASPBIAN - Create Salt repo directory"
   template:
     src: "templates/raspbian-saltstack.list.j2"
     dest: "/etc/apt/sources.list.d/saltstack.list"

@@ -31,6 +31,10 @@ minion_id: "{{ inventory_hostname }}"
 
 # Formulas
 salt_formulas:
-  - name: "vim-formula" 
-    repo: "https://github.com/saltstack-formulas/vim-formula.git"
+#  - name: "vim-formula" 
+#    repo: "https://github.com/saltstack-formulas/vim-formula.git"
+#  - name: "docker-formula"
+#    repo: "https://github.com/saltstack-formulas/docker-formula.git"
+#  - name: "napalm_install"
+#    repo: "https://github.com/saltstack-formulas/napalm-install-formula.git"
 

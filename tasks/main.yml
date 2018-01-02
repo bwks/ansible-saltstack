@@ -4,10 +4,13 @@
   when: ansible_os_family == 'RedHat'
 
 - include: setup-debian.yml
-  when: (ansible_distribution == 'Debian' and ansible_architecture != 'armv7l')
+  when: ansible_distribution == 'Debian' and ansible_architecture != 'armv7l'
 
 - include: setup-raspbian.yml
   when: (ansible_distribution == 'Debian' and ansible_architecture == 'armv7l')
+
+- include: setup-cumulus.yml
+  when: ansible_os_family == 'Cumulus Linux'
 
 - include: pip-dependencies.yml
   when: ansible_distribution == 'Ubuntu'

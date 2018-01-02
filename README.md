@@ -15,6 +15,12 @@ Set the daemons to install on the master node.
 salt_daemons:
   - "salt-master"
   - "salt-minion"
+
+# group_vars/cumulus.yml
+debian:
+  version: 
+    number: "8"
+    name: "jessie"
 ```
   
 Minions daemons are already defined in the defaults
