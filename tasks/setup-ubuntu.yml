@@ -1,3 +1,10 @@
+- name: "UBUNTU - Install dependencies"
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "python-apt"
+
 - name: "UBUNTU - Add Salt APT key"
   apt_key:
     url: "https://repo.saltstack.com/apt/ubuntu/{{ ubuntu.version.number }}/amd64/latest/SALTSTACK-GPG-KEY.pub"
