@@ -5,6 +5,11 @@ debian:
     number: "9"
     name: "stretch"
 
+cumulus:
+  version:
+    number: "8"
+    name: "jessie"
+
 raspbian:
   version:
     number: "8"
@@ -21,6 +26,10 @@ salt_master: "master01"
 # Default salt daemons
 salt_daemons:
   - "salt-minion"
+
+salt_dependencies:
+  - "python-systemd"
+  - "libzmq5"
 
 # Default salt master config file variables
 use_syndics: False

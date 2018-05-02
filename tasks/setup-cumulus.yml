@@ -1,6 +1,6 @@
 - name: "CUMULUS - Add Salt APT key"
   apt_key:
-    url: "https://repo.saltstack.com/apt/debian/{{ debian.version.number }}/amd64/latest/SALTSTACK-GPG-KEY.pub"
+    url: "https://repo.saltstack.com/apt/debian/{{ cumulus.version.number }}/amd64/latest/SALTSTACK-GPG-KEY.pub"
     state: present
     validate_certs: True
 
