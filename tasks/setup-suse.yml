@@ -4,9 +4,7 @@
     path: "/etc/zypp/repos.d/systemsmanagement_saltstack_products.repo"
   register: salt_repo
 
-- name: "SUSE - Create Salt repo directory"
-  template:
-    src: "templates/suse-saltstack.repo.j2"
-    dest: "/etc/zypp/repos.d/systemsmanagement_saltstack_products.repo"
-    mode: 0644
-  when: salt_repo.stat.exists == False
+- name:
+  zypper_repository:
+    repo: "http://repo.saltstack.com/opensuse/{{ repo_folder }}/systemsmanagement:saltstack:products.repo"
+    auto_import_keys: yes
