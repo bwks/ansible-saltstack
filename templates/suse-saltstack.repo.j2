@@ -1,0 +1,7 @@
+[systemsmanagement_saltstack_products]
+name=Salt releases for SLE-based SUSE products ({{ suse.repo_folder }})
+type=rpm-md
+baseurl=http://repo.saltstack.com/opensuse/{{ suse.repo_folder }}/
+gpgcheck=1
+gpgkey=http://repo.saltstack.com/opensuse/{{ suse.repo_folder }}/repodata/repomd.xml.key
+enabled=1
