@@ -20,6 +20,12 @@ ubuntu:
     number: "16.04"
     name: "xenial"
 
+suse:
+  version:
+    number: "42.3"
+    name: "leap"
+  repo_folder: "openSUSE_Leap_42.3"
+
 # Salt default
 salt_master: "master01"
 

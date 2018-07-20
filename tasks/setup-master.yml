@@ -16,8 +16,10 @@
     dest: "/etc/salt/{{ item.dst }}"
     mode: 0644
   with_items:
-    - {"src": "salt-minion.conf.j2", "dst": "minion"} 
-    - {"src": "salt-master.conf.j2", "dst": "master"}
+    - src: "salt-minion.conf.j2"
+      dst: "minion"
+    - src: "salt-master.conf.j2"
+      dst: "master"
   notify: "salt_restart"
 
 - name: "Git clone salt formulas"

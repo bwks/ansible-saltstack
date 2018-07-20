@@ -7,7 +7,7 @@
   with_items:
     - "{{ salt_daemons }}"
   notify: "salt_start"
-  when: ansible_os_family == 'RedHat'
+  when: ansible_os_family == "RedHat"
 
 - name: "APT - Install salt daemons"
   apt:
@@ -17,5 +17,14 @@
   with_items:
     - "{{ salt_daemons }}"
   notify: "salt_start"
-  when: ansible_os_family == 'Debian' or ansible_os_family == 'Cumulus Linux'
+  when: ansible_os_family == "Debian" or ansible_os_family == "Cumulus Linux"
 
+- name: "ZYPPER - Install salt daemons"
+  zypper:
+    name: "{{ item }}"
+    state: latest
+    update_cache: True
+  with_items:
+    - "{{ salt_daemons }}"
+  notify: "salt_start"
+  when: ansible_os_family == "Suse"

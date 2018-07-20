@@ -4,5 +4,6 @@
     dest: "/etc/salt/{{ item.dst }}"
     mode: 0644
   with_items:
-    - {"src": "salt-minion.conf.j2", "dst": "minion"}
+    - src: "salt-minion.conf.j2"
+      dst: "minion"
   notify: "salt_restart"

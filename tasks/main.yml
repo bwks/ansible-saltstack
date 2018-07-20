@@ -1,31 +1,33 @@
 ---
 # tasks file for ansible-salt
-- include: setup-rhel.yml
-  when: ansible_os_family == 'RedHat'
+- include: "setup-rhel.yml"
+  when: ansible_os_family == "RedHat"
 
-- include: setup-debian.yml
-  when: ansible_distribution == 'Debian' and ansible_architecture != 'armv7l'
+- include: "setup-debian.yml"
+  when: ansible_distribution == "Debian" and ansible_architecture != "armv7l"
 
-- include: setup-raspbian.yml
-  when: (ansible_distribution == 'Debian' and ansible_architecture == 'armv7l')
+- include: "setup-raspbian.yml"
+  when: (ansible_distribution == "Debian" and ansible_architecture == "armv7l")
 
-- include: setup-cumulus.yml
-  when: ansible_os_family == 'Cumulus Linux'
+- include: "setup-cumulus.yml"
+  when: ansible_os_family == "Cumulus Linux"
 
-- include: pip-dependencies.yml
-  when: ansible_distribution == 'Ubuntu'
+- include: "pip-dependencies.yml"
+  when: ansible_distribution == "Ubuntu"
 
-- include: setup-ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
+- include: "setup-ubuntu.yml"
+  when: ansible_distribution == "Ubuntu"
 
-- include: master-dependencies.yml
+- include: "setup-suse.yml"
+  when: ansible_os_family == "Suse"
+
+- include: "master-dependencies.yml"
   when: '"masters" in group_names'
 
-- include: salt-install.yml
+- include: "salt-install.yml"
 
-- include: setup-master.yml
+- include: "setup-master.yml"
   when: '"masters" in group_names'
 
-- include: setup-minion.yml
+- include: "setup-minion.yml"
   when: '"minions" in group_names'
-

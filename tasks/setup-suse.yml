@@ -1,0 +1,11 @@
+# Suse
+- name: "SUSE - Check if salt repo is already added"
+  stat:
+    path: "/etc/zypp/repos.d/systemsmanagement_saltstack_products.repo"
+  register: salt_repo
+
+- name: "SUSE - Install salt repo"
+  zypper:
+    name: "http://repo.saltstack.com/opensuse/{{ repo_folder }}/systemsmanagement:saltstack:products.repo"
+    state: present
+  when: salt_repo.stat.exists == False
