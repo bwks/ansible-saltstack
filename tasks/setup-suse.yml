@@ -9,3 +9,4 @@
     repo: "http://repo.saltstack.com/opensuse/{{ suse.repo_folder }}/systemsmanagement:saltstack:products.repo"
     state: present
     auto_import_keys: True
+    runrefresh: True
