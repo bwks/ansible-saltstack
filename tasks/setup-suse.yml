@@ -7,6 +7,6 @@
 - name: "SUSE - Create Salt repo directory"
   template:
     src: "templates/suse-saltstack.repo.j2"
-    dest: "/etc/apt/sources.list.d/systemsmanagement_saltstack_products.repo"
+    dest: "/etc/zypp/repos.d/systemsmanagement_saltstack_products.repo"
     mode: 0644
   when: salt_repo.stat.exists == False
