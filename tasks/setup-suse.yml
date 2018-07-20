@@ -7,6 +7,5 @@
 - name:
   zypper_repository:
     repo: "http://repo.saltstack.com/opensuse/{{ suse.repo_folder }}/systemsmanagement:saltstack:products.repo"
-    name: "saltstack"
     state: present
     auto_import_keys: True
