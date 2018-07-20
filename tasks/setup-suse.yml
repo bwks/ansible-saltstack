@@ -4,9 +4,13 @@
     path: "/etc/zypp/repos.d/systemsmanagement_saltstack_products.repo"
   register: salt_repo
 
-- name:
+- name: "SUSE - Install salt repo"
   zypper_repository:
     repo: "http://repo.saltstack.com/opensuse/{{ suse.repo_folder }}/systemsmanagement:saltstack:products.repo"
     state: present
-    auto_import_keys: True
-    runrefresh: True
+    # auto_import_keys: True  # This does not seem to work
+  when: salt_repo.stat.exists == False
+
+- name: "SUSE - Accept GPG key"
+  cmd: "sudo zypper --gpg-auto-import-keys refresh systemsmanagement_saltstack_products"
+  when: salt_repo.stat.exists == False
