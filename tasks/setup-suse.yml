@@ -12,5 +12,5 @@
   when: salt_repo.stat.exists == False
 
 - name: "SUSE - Accept GPG key"
-  command: "sudo zypper --gpg-auto-import-keys refresh systemsmanagement_saltstack_products"
+  command: "zypper --gpg-auto-import-keys refresh systemsmanagement_saltstack_products"
   when: salt_repo.stat.exists == False
