@@ -6,6 +6,6 @@
 
 - name: "SUSE - Install salt repo"
   zypper:
-    name: "http://repo.saltstack.com/opensuse/{{ repo_folder }}/systemsmanagement:saltstack:products.repo"
+    name: "http://repo.saltstack.com/opensuse/{{ suse.repo_folder }}/systemsmanagement:saltstack:products.repo"
     state: present
   when: salt_repo.stat.exists == False
