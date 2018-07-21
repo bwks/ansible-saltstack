@@ -9,6 +9,7 @@
     - "/srv/salt/reactors"
     - "/srv/salt/templates"
     - "/srv/salt/formulas"
+    - "/srv/salt/files"
 
 - name: "Copy salt config files to master"
   template:
