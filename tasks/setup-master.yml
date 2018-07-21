@@ -4,12 +4,14 @@
     state: directory
     mode: 0755
   with_items:
-    - "/srv/salt/pillar"
-    - "/srv/salt/states"
-    - "/srv/salt/reactors"
-    - "/srv/salt/templates"
-    - "/srv/salt/formulas"
     - "/srv/salt/files"
+    - "/srv/salt/formulas"
+    - "/srv/salt/pillar"
+    - "/srv/salt/reactors"
+    - "/srv/salt/states"
+    - "/srv/salt/templates"
+
+
 
 - name: "Copy salt config files to master"
   template:
