@@ -12,9 +12,14 @@ Role Variables
 Set the daemons to install on the master node. 
 ```yaml
 # group_vars/masters.yml
+---
 salt_daemons:
   - "salt-master"
   - "salt-minion"
+
+salt_formulas:
+  - name: "python"
+    repo: "https://github.com/bobthebutcher/salt-python.git"
 
 ```
   
