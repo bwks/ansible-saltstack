@@ -5,13 +5,3 @@
     state: present
   with_items:
     - "git"
-
-- name: "SUSE - Install dependencies"
-  zypper:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "git"
-    - "python2-pyOpenSSL"
-
-  when: ansible_os_family == "Suse"
