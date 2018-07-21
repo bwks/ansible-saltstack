@@ -11,8 +11,6 @@
     - "/srv/salt/states"
     - "/srv/salt/templates"
 
-
-
 - name: "Copy salt config files to master"
   template:
     src: "templates/{{ item.src }}"
@@ -26,9 +24,9 @@
   notify: "salt_restart"
 
 - name: "Git clone salt formulas"
-  git: 
+  git:
     repo: "{{ item.repo }}"
-    dest: "/srv/salt/formulas/{{ item.name }}"
+    dest: "/srv/salt/formulas/"
   with_items:
     - "{{ salt_formulas }}"
   when: salt_formulas
